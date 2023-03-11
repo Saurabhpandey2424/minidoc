@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Image to Text Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="{% static 'assets4/style.css' %}"> -->
+
+</head>
+
+<body>
+    <header>
+        <h1>Image to Text Converter</h1>
+    </header>
+
+    <main>
+        <form action="/extracttextfromimage" method="post" class="form-container"  enctype="multipart/form-data">
+            <label for="file">Select an image:</label>
+            <input type="file" name="file" accept="image/*">
+            <button >Convert</button>
+        </form>
+        <h2>Extracted Text:</h2>
+        <textarea col = "20" row = "40" class="output-container">
+            <%= data %>
+        </textarea>
+    </main>
+
+    <!-- v4 -->
+     <!-- <script>
+            let img = document.getElementById("#input");
+            let out = document.getElementById("#output");
+            function myFunction() {
+            (img) => {
+                    const tesseract = require("node-tesseract-ocr")
+                    // const img = "https://tesseract.projectnaptha.com/img/eng_bw.png"
+
+                    const config = {
+                        lang: "eng",
+                        oem: 1,
+                        psm: 3,
+                    }
+                    tesseract
+                        .recognize(img, config)
+                        .then((text) => {
+                            console.log("Result:", text)
+                            out.innerHTML = text;
+                        })
+                        .catch((error) => {
+                            console.log(error.message)
+                        })
+                };
+            }
+     </script>  -->
+</body>
+
+</html>
